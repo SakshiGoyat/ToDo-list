@@ -2,9 +2,10 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 const _ = require("lodash");
+const serverless = require("serverless-http");
 
 // making connection
-require("./db/conn");
+require("../db/conn");
 
 //taking port
 const port = process.env.PORT || 5000;
@@ -16,8 +17,10 @@ app.use("/public", express.static("public"));
 app.set("view engine", "ejs");
 
 // routes
-app.use(require("./routes/auth"));
+app.use(require("/.netlify/functions/api", "../routes/auth"));
 
-app.listen(port, () => {
-  console.log(`Listening to ${port}`);
-});
+module.exports.handler = serverless(app);
+
+// app.listen(port, () => {
+//   console.log(`Listening to ${port}`);
+// });
