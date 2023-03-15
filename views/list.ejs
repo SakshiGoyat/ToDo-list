@@ -1,13 +1,11 @@
 <%- include("header") -%>
-
-<div class="box" id="heading">
-  <h1><%= fullDate %></h1>
-</div>
-
-<div class="box" id="heading">
-  <h1><%= listItem %></h1>
-</div>
+<div class="container">
 <div class="box">
+  <h1 class="card date"><%= fullDate %></h1>
+  <h1 class="card heading"><%= listItem %></h1>
+
+
+<div class="card">
   <% newItem.forEach((eachItem)=>{ %>
   <form action="/delete" method="post">
     <div class="item">
@@ -32,5 +30,8 @@
     <button type="submit" value="<%= listItem %>" name="list">+</button>
   </form>
 </div>
-
-<%- include("footer") -%>
+<div class="card">
+  <a href="/" class="links">Go to Home</a>
+</div>
+</div>
+</div>

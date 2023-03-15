@@ -1,0 +1,21 @@
+<%- include("header") -%>
+<div class="container">
+  <div class="box">
+    <h1 class="card heading"><%= listItem %></h1>
+    <h1 class="card date"><%= fullDate %></h1>
+
+    <div class="card">
+      <ol>
+        <% var count = 0 %> <% newItem.forEach((eachItem)=>{ %> <% count = count
+      +1 %> <% if(count === 1){ %>
+      <li><a href="/food" class="links"><%= eachItem %></a></li>
+      <% }else if(count===2){ %>
+      <li><a href="/work" class="links"> <%= eachItem %></a></li>
+      <% }else if(count===3){ %>
+      <li><a href="/exercise" class="links"><%= eachItem %></a></li>
+      <% } %> <% }); %>
+      </ol>
+      
+    </div>
+  </div>
+</div>
